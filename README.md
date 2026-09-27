@@ -1,4 +1,4 @@
-# ReturnToTimeWindow — Stage 0: the running sequence
+# PaluuAikaIkkunaan (return to time window) — Stage 0: the running sequence
 
 *Claude's build. Sol is building a separate version of the same stage.*
 
