@@ -1,0 +1,520 @@
+{
+ "C1": {
+  "free": {
+   "P=1 0.08/s": 0.2261904761904762,
+   "P=1 0.2/s": 0.16666666666666666,
+   "P=1 0.8/s": 0.06349206349206349,
+   "P=1 2/s": 0.023809523809523808,
+   "P=4 0.08/s": 0.8928571428571428,
+   "P=4 0.2/s": 0.4246031746031746,
+   "P=4 0.8/s": 0.05952380952380953,
+   "P=4 2/s": 0.03571428571428571,
+   "P=8 0.08/s": 1.0,
+   "P=8 0.2/s": 0.9087301587301587,
+   "P=8 0.8/s": 0.38095238095238093,
+   "P=8 2/s": 0.05952380952380953,
+   "P=16 0.08/s": 1.0,
+   "P=16 0.2/s": 1.0,
+   "P=16 0.8/s": 1.0,
+   "P=16 2/s": 0.055555555555555546
+  },
+  "locked": {
+   "P=1 0.08/s": 0.050505050505050504,
+   "P=1 0.2/s": 0.03787878787878788,
+   "P=1 0.8/s": 0.020202020202020204,
+   "P=1 2/s": 0.0025252525252525255,
+   "P=4 0.08/s": 0.9570707070707071,
+   "P=4 0.2/s": 0.9570707070707071,
+   "P=4 0.8/s": 0.04292929292929293,
+   "P=4 2/s": 0.020202020202020204,
+   "P=8 0.08/s": 1.0,
+   "P=8 0.2/s": 1.0,
+   "P=8 0.8/s": 0.8383838383838383,
+   "P=8 2/s": 0.027777777777777776,
+   "P=16 0.08/s": 1.0,
+   "P=16 0.2/s": 0.8383838383838383,
+   "P=16 0.8/s": 1.0,
+   "P=16 2/s": 0.04545454545454545
+  }
+ },
+ "C23": {
+  "forward": {
+   "chain only": {
+    "familiar": 0.9533333333333331,
+    "novel": 0.7383333333333335
+   },
+   "ring only": {
+    "familiar": 1.0,
+    "novel": 1.0
+   },
+   "composite g_B=1": {
+    "familiar": 0.9633333333333333,
+    "novel": 0.7466666666666668
+   },
+   "composite g_B=2": {
+    "familiar": 0.9733333333333332,
+    "novel": 0.7800000000000001
+   },
+   "composite g_B=3": {
+    "familiar": 0.98,
+    "novel": 0.8633333333333334
+   },
+   "composite g_B=4": {
+    "familiar": 0.98,
+    "novel": 0.9766666666666666
+   },
+   "composite g_B=6": {
+    "familiar": 0.9833333333333333,
+    "novel": 0.9833333333333333
+   },
+   "composite g_B=8": {
+    "familiar": 1.0,
+    "novel": 1.0
+   },
+   "composite g_B=12": {
+    "familiar": 1.0,
+    "novel": 1.0
+   }
+  },
+  "backward": {
+   "ring only": {
+    "familiar": 1.0,
+    "novel": 1.0
+   },
+   "composite g_B=1": {
+    "familiar": 0.03333333333333334,
+    "novel": 0.03166666666666667
+   },
+   "composite g_B=2": {
+    "familiar": 0.29000000000000004,
+    "novel": 0.2833333333333333
+   },
+   "composite g_B=3": {
+    "familiar": 0.44333333333333336,
+    "novel": 0.43499999999999994
+   },
+   "composite g_B=4": {
+    "familiar": 0.56,
+    "novel": 0.5816666666666667
+   },
+   "composite g_B=6": {
+    "familiar": 0.8566666666666667,
+    "novel": 0.8683333333333333
+   },
+   "composite g_B=8": {
+    "familiar": 0.9399999999999997,
+    "novel": 0.9466666666666667
+   },
+   "composite g_B=12": {
+    "familiar": 0.9833333333333333,
+    "novel": 0.9833333333333333
+   }
+  },
+  "schema_intrusions": {
+   "chain only": {
+    "errors": 130,
+    "schema": 130
+   },
+   "ring only": {
+    "errors": 0,
+    "schema": 0
+   },
+   "composite g_B=1": {
+    "errors": 130,
+    "schema": 130
+   },
+   "composite g_B=2": {
+    "errors": 116,
+    "schema": 115
+   },
+   "composite g_B=3": {
+    "errors": 70,
+    "schema": 63
+   },
+   "composite g_B=4": {
+    "errors": 4,
+    "schema": 4
+   },
+   "composite g_B=6": {
+    "errors": 0,
+    "schema": 0
+   },
+   "composite g_B=8": {
+    "errors": 0,
+    "schema": 0
+   },
+   "composite g_B=12": {
+    "errors": 0,
+    "schema": 0
+   }
+  },
+  "two_words_active_forward": {
+   "chain only": {
+    "familiar": 0.04848484848484847,
+    "novel": 0.05
+   },
+   "ring only": {
+    "familiar": 0.0,
+    "novel": 0.0
+   },
+   "composite g_B=1": {
+    "familiar": 0.06969696969696967,
+    "novel": 0.26666666666666666
+   },
+   "composite g_B=2": {
+    "familiar": 0.06969696969696967,
+    "novel": 0.2681818181818182
+   },
+   "composite g_B=3": {
+    "familiar": 0.06969696969696967,
+    "novel": 0.2636363636363636
+   },
+   "composite g_B=4": {
+    "familiar": 0.06969696969696967,
+    "novel": 0.24393939393939396
+   },
+   "composite g_B=6": {
+    "familiar": 0.06969696969696967,
+    "novel": 0.23939393939393938
+   },
+   "composite g_B=8": {
+    "familiar": 0.06363636363636363,
+    "novel": 0.24090909090909088
+   },
+   "composite g_B=12": {
+    "familiar": 0.06363636363636363,
+    "novel": 0.23787878787878786
+   }
+  },
+  "two_words_active_backward": {
+   "ring only": {
+    "familiar": 0.0,
+    "novel": 0.0
+   },
+   "composite g_B=1": {
+    "familiar": 0.8818181818181817,
+    "novel": 0.8878787878787878
+   },
+   "composite g_B=2": {
+    "familiar": 0.9090909090909093,
+    "novel": 0.9090909090909088
+   },
+   "composite g_B=3": {
+    "familiar": 0.9090909090909093,
+    "novel": 0.9090909090909088
+   },
+   "composite g_B=4": {
+    "familiar": 0.9090909090909093,
+    "novel": 0.9090909090909088
+   },
+   "composite g_B=6": {
+    "familiar": 0.9090909090909093,
+    "novel": 0.9090909090909088
+   },
+   "composite g_B=8": {
+    "familiar": 0.9090909090909093,
+    "novel": 0.9090909090909088
+   },
+   "composite g_B=12": {
+    "familiar": 0.9060606060606061,
+    "novel": 0.9075757575757574
+   }
+  }
+ },
+ "C4": {
+  "chain only": {
+   "familiar": 0.7814814814814814,
+   "novel": 0.7703703703703704
+  },
+  "ring only": {
+   "familiar": 1.0,
+   "novel": 1.0
+  },
+  "composite": {
+   "familiar": 0.9962962962962963,
+   "novel": 0.9944444444444445
+  }
+ },
+ "C5": {
+  "0 missing": {
+   "ring only": {
+    "familiar": {
+     "accuracy": 1.0,
+     "gaps_filled_correctly": null
+    },
+    "novel": {
+     "accuracy": 1.0,
+     "gaps_filled_correctly": null
+    }
+   },
+   "composite": {
+    "familiar": {
+     "accuracy": 1.0,
+     "gaps_filled_correctly": null
+    },
+    "novel": {
+     "accuracy": 1.0,
+     "gaps_filled_correctly": null
+    }
+   }
+  },
+  "2 missing": {
+   "ring only": {
+    "familiar": {
+     "accuracy": 0.8000000000000003,
+     "gaps_filled_correctly": 0.0
+    },
+    "novel": {
+     "accuracy": 0.7999999999999997,
+     "gaps_filled_correctly": 0.0
+    }
+   },
+   "composite": {
+    "familiar": {
+     "accuracy": 0.99,
+     "gaps_filled_correctly": 0.95
+    },
+    "novel": {
+     "accuracy": 0.9483333333333334,
+     "gaps_filled_correctly": 0.7416666666666667
+    }
+   }
+  },
+  "4 missing": {
+   "ring only": {
+    "familiar": {
+     "accuracy": 0.6000000000000001,
+     "gaps_filled_correctly": 0.0
+    },
+    "novel": {
+     "accuracy": 0.6000000000000001,
+     "gaps_filled_correctly": 0.0
+    }
+   },
+   "composite": {
+    "familiar": {
+     "accuracy": 0.98,
+     "gaps_filled_correctly": 0.95
+    },
+    "novel": {
+     "accuracy": 0.9183333333333334,
+     "gaps_filled_correctly": 0.7958333333333333
+    }
+   }
+  }
+ },
+ "C6": {
+  "P=1 0.2/s": {
+   "ring only": {
+    "episode_pairs": 0.6263623966076048,
+    "plausible_intrusions": 0.0,
+    "silent": 0.30934343434343436
+   },
+   "ring only + restart": {
+    "episode_pairs": 0.738232705679293,
+    "plausible_intrusions": 0.0,
+    "silent": 0.07196969696969696
+   },
+   "composite": {
+    "episode_pairs": 0.5439276485788114,
+    "plausible_intrusions": 0.13695090439276486,
+    "silent": 0.0
+   },
+   "composite + restart": {
+    "episode_pairs": 0.5930232558139534,
+    "plausible_intrusions": 0.09431524547803617,
+    "silent": 0.0
+   }
+  },
+  "P=1 0.8/s": {
+   "ring only": {
+    "episode_pairs": 0.39533006422120687,
+    "plausible_intrusions": 0.0,
+    "silent": 0.2095959595959596
+   },
+   "ring only + restart": {
+    "episode_pairs": 0.4837207119564013,
+    "plausible_intrusions": 0.0,
+    "silent": 0.1136363636363636
+   },
+   "composite": {
+    "episode_pairs": 0.41472868217054265,
+    "plausible_intrusions": 0.103359173126615,
+    "silent": 0.0
+   },
+   "composite + restart": {
+    "episode_pairs": 0.45736434108527135,
+    "plausible_intrusions": 0.10594315245478038,
+    "silent": 0.0
+   }
+  },
+  "P=8 0.2/s": {
+   "ring only": {
+    "episode_pairs": 0.8757136583223539,
+    "plausible_intrusions": 0.0,
+    "silent": 0.07323232323232323
+   },
+   "ring only + restart": {
+    "episode_pairs": 0.9776249044541727,
+    "plausible_intrusions": 0.0,
+    "silent": 0.006313131313131313
+   },
+   "composite": {
+    "episode_pairs": 0.8462532299741602,
+    "plausible_intrusions": 0.05426356589147287,
+    "silent": 0.0
+   },
+   "composite + restart": {
+    "episode_pairs": 0.9069767441860466,
+    "plausible_intrusions": 0.03488372093023255,
+    "silent": 0.0
+   }
+  },
+  "P=8 0.8/s": {
+   "ring only": {
+    "episode_pairs": 0.6738283084723353,
+    "plausible_intrusions": 0.0,
+    "silent": 0.02904040404040404
+   },
+   "ring only + restart": {
+    "episode_pairs": 0.9374487930925821,
+    "plausible_intrusions": 0.0,
+    "silent": 0.006313131313131314
+   },
+   "composite": {
+    "episode_pairs": 0.5400516795865633,
+    "plausible_intrusions": 0.046511627906976744,
+    "silent": 0.0
+   },
+   "composite + restart": {
+    "episode_pairs": 0.6524547803617571,
+    "plausible_intrusions": 0.040051679586563305,
+    "silent": 0.0
+   }
+  }
+ },
+ "C7": {
+  "0.08/s": {
+   "OR, no checkpoint": {
+    "survival": 0.3273809523809524,
+    "published_that_is_wave": 0.45391923856391436,
+    "wave_words_kept": 1.0
+   },
+   "OR, AND checkpoint": {
+    "survival": 0.3273809523809524,
+    "published_that_is_wave": 0.4606167112935017,
+    "wave_words_kept": 0.9899531923013278
+   },
+   "AND everywhere": {
+    "survival": 0.3154761904761905,
+    "published_that_is_wave": 0.8284353294389157,
+    "wave_words_kept": 1.0
+   }
+  },
+  "0.2/s": {
+   "OR, no checkpoint": {
+    "survival": 0.08630952380952381,
+    "published_that_is_wave": 0.20043441112679045,
+    "wave_words_kept": 1.0
+   },
+   "OR, AND checkpoint": {
+    "survival": 0.08630952380952381,
+    "published_that_is_wave": 0.20601790204292644,
+    "wave_words_kept": 0.9689409272161439
+   },
+   "AND everywhere": {
+    "survival": 0.09821428571428571,
+    "published_that_is_wave": 0.5649779956619151,
+    "wave_words_kept": 1.0
+   }
+  },
+  "0.4/s": {
+   "OR, no checkpoint": {
+    "survival": 0.05654761904761904,
+    "published_that_is_wave": 0.17544631904418273,
+    "wave_words_kept": 1.0
+   },
+   "OR, AND checkpoint": {
+    "survival": 0.05654761904761904,
+    "published_that_is_wave": 0.1807183444123673,
+    "wave_words_kept": 0.9275614932206714
+   },
+   "AND everywhere": {
+    "survival": 0.04464285714285714,
+    "published_that_is_wave": 0.34416534963720646,
+    "wave_words_kept": 1.0
+   }
+  }
+ },
+ "sentences": {
+  "familiar": [
+   "winter girl walks to hill with a sled and slides .",
+   "winter boy walks to hill with a sled and slides .",
+   "beach girl walks to sea with a ball and swims .",
+   "beach boy walks to sea with a ball and swims .",
+   "night girl walks to bed with a book and reads .",
+   "night boy walks to bed with a book and reads ."
+  ],
+  "novel": [
+   "winter girl walks to sea with a ball and swims .",
+   "winter boy walks to sea with a book and swims .",
+   "winter girl walks to sea with a ball and swims .",
+   "winter boy walks to bed with a sled and swims .",
+   "beach girl walks to sea with a book and reads .",
+   "beach boy walks to hill with a book and reads .",
+   "beach girl walks to sea with a sled and swims .",
+   "beach boy walks to hill with a book and reads .",
+   "night girl walks to bed with a sled and reads .",
+   "night boy walks to bed with a ball and reads .",
+   "night girl walks to bed with a book and slides .",
+   "night boy walks to hill with a sled and slides ."
+  ]
+ },
+ "params": {
+  "locked": {
+   "N": 11,
+   "P": 1,
+   "d": 40,
+   "w_x": 3.5,
+   "w_self": 1.0,
+   "theta": 0.3,
+   "G": 3.0,
+   "tau_r": 2.0,
+   "tau_p": 30.0,
+   "g_p": 0.25,
+   "w_p": 3.0,
+   "noise": 0.02,
+   "p_spont": 0.0,
+   "spont_I": 2.0,
+   "spont_len": 4,
+   "onset": 0.5,
+   "pv_gate": 20.0,
+   "tau_s": 10.0,
+   "g_slow": 1.5,
+   "tau_slow": 180.0
+  },
+  "free": {
+   "N": 8,
+   "P": 1,
+   "d": 8,
+   "w_x": 1.0,
+   "w_self": 1.0,
+   "theta": 0.3,
+   "G": 3.0,
+   "tau_r": 2.0,
+   "tau_p": 30.0,
+   "g_p": 0.25,
+   "w_p": 3.0,
+   "noise": 0.02,
+   "p_spont": 0.0,
+   "spont_I": 2.0,
+   "spont_len": 4,
+   "onset": 0.5,
+   "pv_gate": 20.0,
+   "tau_s": 1.0,
+   "g_slow": 0.0,
+   "tau_slow": 150.0
+  },
+  "g_B": 8.0
+ }
+}
