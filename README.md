@@ -217,6 +217,8 @@ python -m rttw.stage05       # Stage 0.5, ~3 min; writes results/stage05_results
 python -m rttw.viewer05      # writes figures/ring_viewer.png, figures/stage05_results.png
 python -m rttw.stage06       # Stage 0.6, ~6 min; writes results/stage06_results.json
 python -m rttw.viewer06      # writes figures/composite_viewer.png, figures/stage06_results.png
+python -m rttw.stage07       # Stage 0.7, ~15 min on 2 cores; writes results/stage07_results.json
+python -m rttw.viewer07      # writes figures/stage07_results.png
 ```
 
 `rttw/grammar.py` is the stories, `rttw/machine.py` the machine (all four doors and the learning
@@ -584,3 +586,106 @@ The two kinds of order have different jobs:
 A natural next door is a control that turns the chain's influence down when the task is "say
 exactly what you heard", and up when it is "fill in what's missing". That would be the tuft/SST
 system's job in the original picture.
+
+---
+
+# Stage 0.7 — who speaks when: one global schema gain vs a local gate
+
+Stage 0.6 ended with a conflict. With the chain (schema) always on, it fills gaps in an episode
+well. But it also pushes forward during backward recall, and it fills noise-breaks with plausible
+wrong words. The obvious fix is a knob that turns the schema down for "say exactly what you heard"
+and up for "fill in what's missing".
+
+Stage 0.7 tests whether a knob is enough, or whether the decision has to be local.
+
+- **Global:** the chain's content pathways (learned transitions + the rebound) are scaled by one
+  constant λ, the same for every moment and every task.
+- **Gate:** the same pathways are scaled by `1 - (episode drive right now)`, clipped to [0, 1].
+  The chain is muted exactly while a ring place is delivering its bound word. It speaks freely
+  when the place holds nothing (a gap) or when the ring is gone.
+
+The gate doesn't pick a word. It only decides which pathway may write at that moment. Apical
+context is left on in every condition, because it changes susceptibility, not content. Every
+condition restarts a silent ring from the last spoken word that the episode actually holds.
+
+**The falsifier:** if some single λ matches the gate on all four tests at once, the gate adds
+nothing. The four tests:
+- forward recall of novel sentences;
+- backward recall;
+- gap filling (4 of 10 places unbound);
+- noisy recitation (8 units per place, 0.8 spurious ignitions per unit per second, 4 recitations).
+
+There are 18 sentences × 5 weight seeds per recall test, and 36 runs per noise test, each at two
+episode strengths (g_B = 4 and 8).
+
+![stage 0.7](figures/stage07_results.png)
+
+## Results
+
+| g_B = 4 | forward novel | backward | gaps familiar / novel | noisy recitation | worst of four |
+|---|---|---|---|---|---|
+| ring only (λ = 0) | 1.00 | 1.00 | 0.60 / 0.60 | 0.97 | 0.60 |
+| global λ = 0.25 | 1.00 | 1.00 | 0.76 / 0.76 | 0.92 | 0.76 |
+| global λ = 0.4 (best global) | 0.99 | 0.95 | 0.94 / 0.85 | 0.78 | 0.78 |
+| global λ = 1 (Stage 0.6) | 0.97 | 0.57 | 0.96 / 0.89 | 0.60 | 0.57 |
+| **gate** | **1.00** | **1.00** | **0.98 / 0.90** | **0.94** | **0.94** |
+
+| g_B = 8 | forward novel | backward | gaps familiar / novel | noisy recitation | worst of four |
+|---|---|---|---|---|---|
+| ring only | 1.00 | 1.00 | 0.60 / 0.60 | 0.96 | 0.60 |
+| global λ = 0.4 (best global) | 1.00 | 1.00 | 0.94 / 0.86 | 0.83 | 0.83 |
+| global λ = 1 | 1.00 | 0.94 | 0.98 / 0.90 | 0.66 | 0.66 |
+| **gate** | **1.00** | **1.00** | **0.98 / 0.90** | **0.90** | **0.90** |
+
+- **No single λ works for all four.** Gap filling needs λ ≥ about 0.4. Noisy recitation gets worse
+  as λ rises (at g_B = 4, from 0.94 at λ = 0.1 to 0.60 at λ = 1). At the weaker episode strength,
+  backward recall collapses too (1.00 to 0.57). The best global setting reaches a worst score of
+  0.78 or 0.83.
+- **The gate gets each test's best at once.** It fills gaps as well as λ = 1, keeps backward
+  recall at 1.00, and keeps noisy recitation close to ring-only. Its worst score is 0.94 or 0.90.
+- **The mechanism shows directly.** In backward recall with λ = 1, two words are strongly active
+  in 91% of cycles, because the chain keeps pushing the forward word. With the gate it is 0%
+  (panels d–e).
+- **Remaining cost:** under noise the gate is still a little below ring-only (0.94 vs 0.97; 0.90
+  vs 0.96). The chain's filler words after the ring is lost cost a few episode pairs, even though
+  the restart resumes from the last true episode word.
+
+## Ledger
+
+**Measured:**
+- No global schema gain matches the gate on the four tests together, at either episode strength.
+- The trade-off behind that is measured: gaps want a strong schema; backward recall and noisy
+  recitation want a weak one.
+- The gate removes two-word co-activation in backward recall.
+
+**Not tuned:** the gate has one constant, β = 1. It was the first value tried and was never swept.
+The global λ was swept over 7 values, and the tables show its best.
+
+**Prior art — the idea is old:**
+- Weighting a prior by whether evidence is present is precision weighting / cue combination (and
+  the crudest Kalman gain: all evidence when it exists, all prior when it doesn't).
+- Episodic plus statistical memory is complementary learning systems (McClelland, McNaughton &
+  O'Reilly 1995).
+- Filling gaps with the schema is Bartlett's reconstructive memory (1932).
+
+What's specific here is that the weighting is done by timing inside the window: the episode's
+arrival mutes the other pathway for exactly as long as it speaks.
+
+**Weak or flawed:**
+- **Binary evidence.** A place either has a bound word or it doesn't. With a wrongly bound word,
+  the gate would say the wrong word faithfully. A graded version, gating by binding strength,
+  and noisy binding are both untested.
+- **The gate reads the episode's drive at the previous step,** so the chain leaks for a step or
+  two at each window opening.
+- **Where the gate would live in cortex is not claimed.** "Recruited by one input, silences
+  another pathway" is SST-like in role only.
+
+## What it means
+
+The episode/schema conflict from Stage 0.6 wasn't a matter of setting one knob right. Each moment
+needs a different mix, and the moment itself knows which: the episode is either delivering a word
+right now or it isn't. A gate driven by the episode's own arrival gets the best of both, with
+nothing tuned.
+
+In the terms this repo started from, this is a door that controls *what gets to write* without
+knowing *what* is written.

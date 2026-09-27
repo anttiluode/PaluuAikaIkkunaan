@@ -154,7 +154,7 @@ class Machine:
 
     # ------------------------------------------------------------------ cycle
     def cycle(self, word=None, ais_open=True, freeze=False, learn=False,
-              record=False, clamp_carry=None, ext_fn=None):
+              record=False, clamp_carry=None, ext_fn=None, gain_fn=None):
         """Run one cycle. word=None means eyes closed (no input).
         freeze=True: PV inhibition for the whole cycle (recurrence stopped).
         Returns a dict describing the cycle."""
@@ -178,12 +178,15 @@ class Machine:
         for k in range(p.T):
             # delayed recurrent input
             r_del = self.hist[self.hptr]
+            # gain_fn scales the chain's own content pathways (learned
+            # transitions and the rebound); None = unscaled, as in Stage 0
+            g = 1.0 if gain_fn is None else gain_fn(k)
             basal = J_in = self.J.T @ r_del
-            basal = basal.copy()
+            basal = basal.copy() if gain_fn is None else g * basal
             if word is not None and p.in_on <= k < p.in_off:
                 basal += inp
             if k < p.reb_off:
-                basal += p.kappa * carry_prev
+                basal += (p.kappa * carry_prev) if gain_fn is None else (g * p.kappa * carry_prev)
             if p.p_spont > 0 and not freeze:
                 # spontaneous ignitions: a random assembly gets a brief input
                 new = self.rng.random(V) < p.p_spont

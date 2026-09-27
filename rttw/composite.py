@@ -156,6 +156,11 @@ class CompParams:
     relaunch: bool = False    # restart the ring from the spoken word when it is silent
     relaunch_after: int = 1   # silent cycles before relaunching
     bind_thr: float = 2.0     # region early-slot integral needed to bind
+    # Stage 0.7: how much the chain's content pathways (transitions + rebound) speak
+    schema: str = "on"        # "on" (Stage 0.6), "global" (constant lam), "gate" (local)
+    lam: float = 1.0          # global schema gain for schema="global"
+    gate_beta: float = 1.0    # gate: gain = clip(1 - beta * episode drive, 0, 1)
+    restart_from: str = "spoken"  # "spoken" (Stage 0.6) or "bound" (last word the episode knows)
 
 
 class Composite:
@@ -191,9 +196,17 @@ class Composite:
         rec = []
         early = self.m.p.early_end
 
+        self._ep = 0.0             # episode drive at the previous step (for the gate)
+
+        def gain_fn(k):
+            if self.c.schema == "global":
+                return self.c.lam
+            return float(np.clip(1.0 - self.c.gate_beta * self._ep, 0.0, 1.0))
+
         def ext_fn(k, dead):
             ring.step(gated=dead)
             mm = ring.m()
+            self._ep = float((self.B.T @ mm).max()) if drive else 0.0
             if k < early:
                 acts[:] += mm
             if record:
@@ -202,7 +215,8 @@ class Composite:
                 return 0.0
             return self.c.g_B * (self.B.T @ mm)
 
-        o = self.m.cycle(word, ext_fn=ext_fn, record=record, ais_open=ais_open)
+        o = self.m.cycle(word, ext_fn=ext_fn, record=record, ais_open=ais_open,
+                         gain_fn=None if self.c.schema == "on" else gain_fn)
         o["ring_early"] = acts.copy()
         o["ring_region"] = int(np.argmax(acts)) if acts.max() > self.c.bind_thr else None
         if record:
@@ -246,9 +260,15 @@ class Composite:
             self.silent += 1
         else:
             self.silent = 0
-        w = o["published"] if o["published"] is not None else self.last_word
-        if o["published"] is not None:
-            self.last_word = o["published"]
+        if self.c.restart_from == "bound":
+            # resume from the most recent spoken word the episode actually holds
+            if o["published"] is not None and self.B[:, IDX[o["published"]]].max() > 0:
+                self.last_word = o["published"]
+            w = self.last_word
+        else:
+            w = o["published"] if o["published"] is not None else self.last_word
+            if o["published"] is not None:
+                self.last_word = o["published"]
         if self.silent >= self.c.relaunch_after and w is not None:
             ks = np.where(self.B[:, IDX[w]] > 0)[0]
             if len(ks):

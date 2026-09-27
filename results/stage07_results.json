@@ -1,0 +1,237 @@
+{
+ "g_B=4": {
+  "ring only": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.6000000000000001,
+   "gaps_novel": 0.6000000000000001,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9684250330875402,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0018939393939393938,
+   "worst_of_four": 0.6000000000000001
+  },
+  "global 0.1": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.6000000000000001,
+   "gaps_novel": 0.6000000000000001,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9392607298166005,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0018939393939393938,
+   "worst_of_four": 0.6000000000000001
+  },
+  "global 0.25": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.7566666666666667,
+   "gaps_novel": 0.7633333333333334,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9231266149870803,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.76
+  },
+  "global 0.4": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 0.9916666666666667,
+   "backward": 0.9511111111111112,
+   "gaps_familiar": 0.94,
+   "gaps_novel": 0.8516666666666667,
+   "two_words_backward": 0.3808080808080808,
+   "noise_episode_pairs": 0.7758397932816536,
+   "noise_plausible": 0.019379844961240306,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.7758397932816536
+  },
+  "global 0.5": {
+   "fwd_familiar": 0.9933333333333334,
+   "fwd_novel": 0.9833333333333333,
+   "backward": 0.9366666666666668,
+   "gaps_familiar": 0.9533333333333333,
+   "gaps_novel": 0.8833333333333333,
+   "two_words_backward": 0.4636363636363636,
+   "noise_episode_pairs": 0.6640826873385013,
+   "noise_plausible": 0.05232558139534884,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.6640826873385013
+  },
+  "global 0.6": {
+   "fwd_familiar": 0.99,
+   "fwd_novel": 0.98,
+   "backward": 0.8900000000000001,
+   "gaps_familiar": 0.97,
+   "gaps_novel": 0.8916666666666665,
+   "two_words_backward": 0.4868686868686869,
+   "noise_episode_pairs": 0.5917312661498707,
+   "noise_plausible": 0.09883720930232559,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.5917312661498707
+  },
+  "global 0.75": {
+   "fwd_familiar": 0.9866666666666667,
+   "fwd_novel": 0.9766666666666666,
+   "backward": 0.7533333333333334,
+   "gaps_familiar": 0.9633333333333332,
+   "gaps_novel": 0.8866666666666667,
+   "two_words_backward": 0.8616161616161615,
+   "noise_episode_pairs": 0.605297157622739,
+   "noise_plausible": 0.1253229974160207,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.605297157622739
+  },
+  "global 1": {
+   "fwd_familiar": 0.98,
+   "fwd_novel": 0.9733333333333333,
+   "backward": 0.5688888888888889,
+   "gaps_familiar": 0.9633333333333332,
+   "gaps_novel": 0.885,
+   "two_words_backward": 0.908080808080808,
+   "noise_episode_pairs": 0.5956072351421189,
+   "noise_plausible": 0.13953488372093026,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.5688888888888889
+  },
+  "gate": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.9766666666666666,
+   "gaps_novel": 0.9,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9373385012919897,
+   "noise_plausible": 0.0012919896640826874,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.9373385012919897
+  }
+ },
+ "g_B=8": {
+  "ring only": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.6000000000000001,
+   "gaps_novel": 0.6000000000000001,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9574431209428373,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0018939393939393938,
+   "worst_of_four": 0.6000000000000001
+  },
+  "global 0.1": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.6000000000000001,
+   "gaps_novel": 0.6000000000000001,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9088989727106573,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0018939393939393938,
+   "worst_of_four": 0.6000000000000001
+  },
+  "global 0.25": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.7566666666666667,
+   "gaps_novel": 0.7633333333333334,
+   "two_words_backward": 0.0,
+   "noise_episode_pairs": 0.9043927648578811,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.76
+  },
+  "global 0.4": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.9433333333333334,
+   "gaps_novel": 0.8633333333333333,
+   "two_words_backward": 0.3838383838383837,
+   "noise_episode_pairs": 0.8301033591731266,
+   "noise_plausible": 0.0,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.8301033591731266
+  },
+  "global 0.5": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.9666666666666666,
+   "gaps_novel": 0.8966666666666667,
+   "two_words_backward": 0.4676767676767677,
+   "noise_episode_pairs": 0.78359173126615,
+   "noise_plausible": 0.005813953488372093,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.78359173126615
+  },
+  "global 0.6": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.9766666666666666,
+   "gaps_novel": 0.8999999999999999,
+   "two_words_backward": 0.49595959595959593,
+   "noise_episode_pairs": 0.727390180878553,
+   "noise_plausible": 0.0103359173126615,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.727390180878553
+  },
+  "global 0.75": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 0.9811111111111113,
+   "gaps_familiar": 0.9766666666666666,
+   "gaps_novel": 0.8983333333333333,
+   "two_words_backward": 0.8424242424242425,
+   "noise_episode_pairs": 0.686046511627907,
+   "noise_plausible": 0.027777777777777776,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.686046511627907
+  },
+  "global 1": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 0.938888888888889,
+   "gaps_familiar": 0.9766666666666666,
+   "gaps_novel": 0.9,
+   "two_words_backward": 0.9090909090909088,
+   "noise_episode_pairs": 0.661498708010336,
+   "noise_plausible": 0.040051679586563305,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.661498708010336
+  },
+  "gate": {
+   "fwd_familiar": 1.0,
+   "fwd_novel": 1.0,
+   "backward": 1.0,
+   "gaps_familiar": 0.9766666666666666,
+   "gaps_novel": 0.9,
+   "two_words_backward": 0.00202020202020202,
+   "noise_episode_pairs": 0.8998708010335918,
+   "noise_plausible": 0.0012919896640826874,
+   "noise_silent": 0.0,
+   "worst_of_four": 0.8998708010335918
+  }
+ },
+ "setup": {
+  "noise_per_unit_per_s": 0.8,
+  "units_per_place": 8,
+  "lams": [
+   0.1,
+   0.25,
+   0.4,
+   0.5,
+   0.6,
+   0.75,
+   1.0
+  ],
+  "gaps": 4,
+  "recitations": 4
+ }
+}
