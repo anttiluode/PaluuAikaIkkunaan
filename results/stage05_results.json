@@ -1,0 +1,548 @@
+{
+ "R1": {
+  "grid": {
+   "N=6 tau_p=15": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=6 tau_p=20": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=6 tau_p=22": {
+    "split": 0.3333333333333333,
+    "one-way": 0.0,
+    "dies": 0.6666666666666666
+   },
+   "N=6 tau_p=25": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=6 tau_p=30": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=35": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=40": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=45": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=50": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=60": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=70": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=6 tau_p=80": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=8 tau_p=15": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=8 tau_p=20": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=8 tau_p=22": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=8 tau_p=25": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=8 tau_p=30": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=8 tau_p=35": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=8 tau_p=40": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=8 tau_p=45": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=8 tau_p=50": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=8 tau_p=60": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=8 tau_p=70": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=8 tau_p=80": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=12 tau_p=15": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=20": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=22": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=25": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=30": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=35": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=40": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=45": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=50": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=12 tau_p=60": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=12 tau_p=70": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=12 tau_p=80": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   },
+   "N=16 tau_p=15": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=20": {
+    "split": 1.0,
+    "one-way": 0.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=22": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=25": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=30": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=35": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=40": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=45": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=50": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=60": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=70": {
+    "split": 0.0,
+    "one-way": 1.0,
+    "dies": 0.0
+   },
+   "N=16 tau_p=80": {
+    "split": 0.0,
+    "one-way": 0.0,
+    "dies": 1.0
+   }
+  },
+  "refractory": {
+   "15": 11,
+   "20": 14,
+   "22": 16,
+   "25": 18,
+   "30": 21,
+   "35": 24,
+   "40": 27,
+   "45": 30,
+   "50": 33,
+   "60": 40,
+   "70": 46,
+   "80": 52
+  },
+  "lap": {
+   "6": 53.0,
+   "8": 70.0,
+   "12": 103.0,
+   "16": 136.0
+  }
+ },
+ "R2": {
+  "forward": {
+   "match": 1.0,
+   "example": "winter girl walks to hill with a sled winter girl walks to hill with a sled"
+  },
+  "backward": {
+   "match": 1.0,
+   "example": "winter sled a with hill to walks girl winter sled a with hill to walks girl"
+  },
+  "stage0_chain": {
+   "mean_forward_J": 0.7565270604140845,
+   "max_backward_J": 0.0
+  }
+ },
+ "R3": {
+  "reverse from here": 1.0,
+  "start at a word": 1.0
+ },
+ "R45": {
+  "single ring": {
+   "0.08/s": {
+    "survival": 0.2113095238095238,
+    "clean": 0.5216507444125448,
+    "reversed": 0.0,
+    "dead": 0.7886904761904762
+   },
+   "0.20/s": {
+    "survival": 0.16666666666666666,
+    "clean": 0.3397404735441882,
+    "reversed": 0.023809523809523808,
+    "dead": 0.8095238095238095
+   },
+   "0.40/s": {
+    "survival": 0.11904761904761904,
+    "clean": 0.27196894250967474,
+    "reversed": 0.026785714285714284,
+    "dead": 0.8303571428571428
+   },
+   "0.80/s": {
+    "survival": 0.06249999999999999,
+    "clean": 0.21443930867751715,
+    "reversed": 0.020833333333333332,
+    "dead": 0.8928571428571428
+   }
+  },
+  "OR pair, private": {
+   "0.08/s": {
+    "survival": 0.32738095238095233,
+    "clean": 0.4539192385639144,
+    "reversed": 0.0,
+    "dead": 0.6726190476190477
+   },
+   "0.20/s": {
+    "survival": 0.08630952380952381,
+    "clean": 0.20043441112679045,
+    "reversed": 0.008928571428571428,
+    "dead": 0.9047619047619048
+   },
+   "0.40/s": {
+    "survival": 0.05654761904761904,
+    "clean": 0.17544631904418273,
+    "reversed": 0.011904761904761904,
+    "dead": 0.9166666666666665
+   },
+   "0.80/s": {
+    "survival": 0.03571428571428571,
+    "clean": 0.18315195461232164,
+    "reversed": 0.02976190476190476,
+    "dead": 0.8988095238095237
+   }
+  },
+  "OR pair, shared": {
+   "0.08/s": {
+    "survival": 0.4017857142857143,
+    "clean": 0.5838202029244954,
+    "reversed": 0.0,
+    "dead": 0.5982142857142857
+   },
+   "0.20/s": {
+    "survival": 0.11309523809523808,
+    "clean": 0.2961871532411515,
+    "reversed": 0.002976190476190476,
+    "dead": 0.8839285714285714
+   },
+   "0.40/s": {
+    "survival": 0.05952380952380952,
+    "clean": 0.22500300348852142,
+    "reversed": 0.002976190476190476,
+    "dead": 0.9047619047619048
+   },
+   "0.80/s": {
+    "survival": 0.03571428571428571,
+    "clean": 0.20859224007441396,
+    "reversed": 0.017857142857142856,
+    "dead": 0.8958333333333333
+   }
+  },
+  "AND pair, private": {
+   "0.08/s": {
+    "survival": 0.31547619047619047,
+    "clean": 0.8284353294389157,
+    "reversed": 0.0,
+    "dead": 0.6845238095238095
+   },
+   "0.20/s": {
+    "survival": 0.09821428571428571,
+    "clean": 0.5649779956619152,
+    "reversed": 0.0,
+    "dead": 0.9017857142857143
+   },
+   "0.40/s": {
+    "survival": 0.04464285714285714,
+    "clean": 0.3441653496372065,
+    "reversed": 0.0,
+    "dead": 0.9553571428571428
+   },
+   "0.80/s": {
+    "survival": 0.020833333333333332,
+    "clean": 0.21415612911108253,
+    "reversed": 0.0,
+    "dead": 0.9702380952380951
+   }
+  },
+  "AND pair, shared": {
+   "0.08/s": {
+    "survival": 0.5297619047619048,
+    "clean": 0.6832174540456457,
+    "reversed": 0.002976190476190476,
+    "dead": 0.46726190476190477
+   },
+   "0.20/s": {
+    "survival": 0.15476190476190477,
+    "clean": 0.39501729081355996,
+    "reversed": 0.026785714285714284,
+    "dead": 0.7946428571428571
+   },
+   "0.40/s": {
+    "survival": 0.10416666666666666,
+    "clean": 0.3298962661168523,
+    "reversed": 0.044642857142857144,
+    "dead": 0.8005952380952381
+   },
+   "0.80/s": {
+    "survival": 0.08333333333333333,
+    "clean": 0.287969298879174,
+    "reversed": 0.041666666666666664,
+    "dead": 0.8273809523809523
+   }
+  }
+ },
+ "R6": {
+  "OR pair": {
+   "0": {
+    "alive": 1.0,
+    "final_lag_steps": -0.008333333333333333
+   },
+   "2": {
+    "alive": 1.0,
+    "final_lag_steps": 0.004166666666666667
+   },
+   "4": {
+    "alive": 1.0,
+    "final_lag_steps": -0.0020833333333333333
+   },
+   "6": {
+    "alive": 1.0,
+    "final_lag_steps": 0.0
+   },
+   "8": {
+    "alive": 0.09523809523809523,
+    "final_lag_steps": null
+   },
+   "10": {
+    "alive": 0.09523809523809523,
+    "final_lag_steps": null
+   },
+   "12": {
+    "alive": 0.09523809523809523,
+    "final_lag_steps": null
+   },
+   "16": {
+    "alive": 0.0,
+    "final_lag_steps": null
+   }
+  },
+  "AND pair": {
+   "0": {
+    "alive": 1.0,
+    "final_lag_steps": -0.007352941176470588
+   },
+   "2": {
+    "alive": 1.0,
+    "final_lag_steps": -0.012254901960784314
+   },
+   "4": {
+    "alive": 1.0,
+    "final_lag_steps": 0.014705882352941176
+   },
+   "6": {
+    "alive": 1.0,
+    "final_lag_steps": 0.009615384615384616
+   },
+   "8": {
+    "alive": 0.0,
+    "final_lag_steps": null
+   },
+   "10": {
+    "alive": 0.0,
+    "final_lag_steps": null
+   },
+   "12": {
+    "alive": 0.0,
+    "final_lag_steps": null
+   },
+   "16": {
+    "alive": 0.0,
+    "final_lag_steps": null
+   }
+  }
+ },
+ "params": {
+  "single": {
+   "N": 8,
+   "H": 1,
+   "d": 8,
+   "w_x": 1.0,
+   "w_c": 0.0,
+   "w_self": 1.0,
+   "theta": 0.3,
+   "G": 3.0,
+   "tau_r": 2.0,
+   "tau_p": 30.0,
+   "g_p": 0.25,
+   "w_p": 3.0,
+   "noise": 0.02,
+   "p_spont": 0.0,
+   "spont_shared": false,
+   "spont_I": 2.0,
+   "spont_len": 4,
+   "onset": 0.5
+  },
+  "pair_or": {
+   "N": 8,
+   "H": 2,
+   "d": 8,
+   "w_x": 0.5,
+   "w_c": 0.5,
+   "w_self": 1.0,
+   "theta": 0.3,
+   "G": 3.0,
+   "tau_r": 2.0,
+   "tau_p": 30.0,
+   "g_p": 0.25,
+   "w_p": 3.0,
+   "noise": 0.02,
+   "p_spont": 0.0,
+   "spont_shared": false,
+   "spont_I": 2.0,
+   "spont_len": 4,
+   "onset": 0.5
+  },
+  "pair_and": {
+   "N": 8,
+   "H": 2,
+   "d": 8,
+   "w_x": 0.5,
+   "w_c": 0.5,
+   "w_self": 2.0,
+   "theta": 0.6,
+   "G": 3.0,
+   "tau_r": 2.0,
+   "tau_p": 30.0,
+   "g_p": 0.25,
+   "w_p": 3.0,
+   "noise": 0.02,
+   "p_spont": 0.0,
+   "spont_shared": false,
+   "spont_I": 2.0,
+   "spont_len": 4,
+   "onset": 0.5
+  }
+ }
+}
