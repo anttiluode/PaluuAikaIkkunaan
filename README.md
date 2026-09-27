@@ -213,6 +213,8 @@ downstream, so the route closure isn't needed there.
 pip install numpy matplotlib
 python -m rttw.experiments   # ~8 min on 2 cores; writes results/results.json, results/weights.pkl
 python -m rttw.viewer        # writes figures/
+python -m rttw.stage05       # Stage 0.5, ~3 min; writes results/stage05_results.json
+python -m rttw.viewer05      # writes figures/ring_viewer.png, figures/stage05_results.png
 ```
 
 `rttw/grammar.py` is the stories, `rttw/machine.py` the machine (all four doors and the learning
@@ -226,3 +228,164 @@ rules), `rttw/experiments.py` the tests, and `rttw/viewer.py` the window viewer 
   That is where route closure should matter most, and Stage 0 can't show it.
 - Letters as gamma sub-slots inside word windows.
 - The emitted-waveform channel (Stage 3 in the plan).
+
+---
+
+# Stage 0.5 — routes and coincidence
+
+*Prompted by two papers:*
+- *Ye et al., "Brain-wide topographic coordination of traveling spiral waves" (bioRxiv 2023.12.07.570517 v3).*
+  Spirals in mouse cortex sweep the body map in order, around a centre where the local axons lie
+  tangentially and match the wave's direction. Mirrored areas rotate opposite ways.
+- *Verzhbinsky et al., "Cross-region neuron co-firing mediated by ripple oscillations supports
+  distributed working memory representations" (Nature Neuroscience 2026).* Cross-region co-firing
+  within 25 ms rises about 30% when distant sites ripple together, with no fall-off up to 220 mm.
+
+Stage 0 has one global clock: every assembly opens and closes its window together. Both papers are
+about windows that are local, and about what happens between places. Stage 0.5 asks two questions:
+
+1. **Can the order of a sequence come from the route instead of from learned transitions?**
+2. **Does requiring two places to fire together (coincidence) protect a running sequence from noise?**
+
+## The machine: a ring
+
+Eight regions sit on a ring, and region k stores word k.
+
+- **Symmetric wiring:** every region excites both neighbours equally, with a 20 ms hop delay.
+- **No global clock.** A region's window opens when a neighbour's burst arrives. Its dead time is
+  triggered by its *own* burst, through local PV-like inhibition with time constant `tau_p`.
+- **Output:** a region publishes its word when it bursts, so the published sentence is the order in
+  which the wave visits the regions.
+- **Starting a wave:** drive one region while briefly blocking the neighbour on one side (a one-sided
+  block). This is the only thing that chooses the direction.
+
+`rttw/ring.py` also has the two-ring version: two mirrored rings, coupled region to region.
+- **OR pair:** input from either ring is enough to fire a region.
+- **AND pair:** a region fires only when the wave arrives from both rings inside the same burst.
+  This is our stand-in for the co-ripple condition.
+
+In the AND pair, the threshold (0.6) sits between one source (0.5) and two (1.0). The OR pair has the
+same weights with a threshold of 0.3.
+
+![ring viewer](figures/ring_viewer.png)
+
+## Results
+
+Eight seeds per condition unless stated. See `results/stage05_results.json`.
+
+**R2 — direction is a state, not a weight.** Same weights, same stored words:
+- The one-sided block on the left reads `winter girl walks to hill with a sled …`.
+- The block on the right reads `winter sled a with hill to walks girl …`.
+- Both match the expected order in 100% of bursts, for 20+ laps with no input.
+
+For comparison, the Stage 0 chain can't do this at all. Its learned transitions are one-way: the
+largest backward weight along a story is 0.00, against a mean of 0.76 forward. Reading a chain
+backward would need a second, backward chain to be learned.
+
+**R3 — operations on a running sequence.**
+- *Reverse from here:* 50 ms of global inhibition, then a one-sided restart at the current word.
+- *Start at a word:* the same restart at any region.
+
+Both give the expected order in 100% of trials. Both are designed operations; the finding is only
+that the residual refractoriness left by the running wave doesn't break them.
+
+**R1 — the dead time has to sit in a band** (panel a). Refractory period after a burst, against
+ring size:
+- **Too short** (≤ 14 steps; one hop is about 9): the neighbour ahead re-excites the region
+  behind, the wave splits both ways, and the ring ends in a standing, alternating pattern. This
+  lower edge doesn't depend on ring size.
+- **Too long:** the wave runs into its own recovering tail and dies. This upper edge moves with the
+  ring: the longest working refractory period is about a third of the lap time (8 regions: 24/70
+  steps; 12: 33/103; 16: 46/136). A 6-region ring (53-step lap) has no working band at all.
+
+In Stage 0 the dead time kept one word per window. Here it does a second job: it makes a symmetric
+wire one-way.
+
+**R4 — noise kills the loop but almost never reverses it** (panels b, c). Spurious ignitions (a
+region fires on its own):
+- At 0.08 per region per second, the single ring keeps its wave for only 21% of a 7.5 s run.
+- Laps running backward stay at 0–4% in every condition. The failure is death, not reversal.
+- The mechanism, from traces: an ignition just behind the recovering tail can only spread backward.
+  It then meets the main wave head-on and both die.
+- This is much more fragile than the Stage 0 chain, which never died. At the same per-assembly rate
+  (0.08/s) Stage 0 kept 86% valid transitions.
+
+**R5 — coincidence stops noise spreading, but does not keep the wave alive** (panels b, c).
+
+| 0.08 ignitions / region / s | wave kept (fraction of run) | bursts that belong to the wave |
+|---|---|---|
+| single ring | 0.21 | 0.52 |
+| OR pair, private noise | 0.33 | 0.45 |
+| AND pair, private noise | 0.32 | **0.83** |
+| AND pair, shared noise | **0.53** | 0.68 |
+
+- **AND stops private noise from spreading:** a region that fires alone in one ring recruits
+  nothing, so far more of the bursts are real wave bursts.
+- **But it doesn't keep the wave alive.** The private burst leaves a refractory hole in one ring.
+  When the real wave arrives, only the other ring's region can fire, which gives one source instead
+  of two, so the wave stops at the hole.
+- **Shared noise is gentler for the AND pair** (0.53 vs 0.32), because it keeps the two rings in
+  step. That confirms the hole is the mechanism.
+- At higher rates everything converges to near zero.
+
+So coincidence turns a hallucinated word into a gap. In this model it doesn't fix noise.
+
+**R6 — two rings lock at zero lag if they start within one burst** (panel d). Start the second ring
+up to 15 ms late: both OR and AND pairs pull into zero lag (|lag| < 0.03 steps) within the first lap
+and keep running. From 20 ms on, the AND pair never starts, and the OR pair dies within a lap or two.
+15 ms is about one burst width. The co-ripple paper's coincidence window is 25 ms, but this
+tolerance comes from our burst width, not from the paper.
+
+![stage 0.5 results](figures/stage05_results.png)
+
+## Ledger
+
+**Measured:**
+- The two-sided refractory band, and the upper edge moving with ring size.
+- Symmetric wiring plus self-triggered dead time gives a stable one-way route, reversible by the
+  start condition alone.
+- Noise kills rather than reverses.
+- AND coupling rejects spreading noise but not its refractory footprint. Shared noise is gentler
+  than private noise for the AND pair.
+- Zero-lag locking from offsets under one burst width.
+
+**By construction:**
+- Forward and backward reading given a working band.
+- The reverse and start-at-word operations (designed; they only had to survive residual
+  refractoriness).
+- The AND pair's refusal to start from one ring.
+- Lap ≈ 70 steps (175 ms, about 5.7 Hz) follows from choosing a 20 ms hop and 8 regions. It lands in
+  the spirals' 2–8 Hz band by choice, not as a finding.
+
+**Prior art — none of this is new physics:**
+- One-way propagation and re-entry around a ring of excitable tissue is cardiac physiology
+  (Mines 1913; Wiener & Rosenblueth 1946), including the vulnerable window behind the tail.
+- Phase-gated routing between areas is Fries's communication-through-coherence.
+- Reading a stored order in both directions is the chaining-versus-positional question in
+  serial-order memory. Positional codes allow backward recall; chains don't.
+- Hippocampal reverse replay exists (Foster & Wilson 2006).
+
+What is new here is only the combination with the Stage 0 doors, and the measured failure modes.
+
+**Weak, negative, or flawed:**
+- **The ring is fragile.** One region is one unit, so a spurious ignition fires a whole region. A
+  population per region, where one unit's noise doesn't make the region refractory, is the obvious
+  next test and may change R4/R5 entirely.
+- **Coincidence did not help survival.** That was the main hope, and it is negative in this model.
+- **Hand-tuned during development:** the burst model (local self-excitation, PV rate and gain), the
+  AND threshold, and the one-sided-block kick. The band in R1 is the band *for these burst
+  parameters*.
+- **Not built:** coincidence on the Stage 0 chain itself. The ring result predicts the same hole
+  problem there: a strict AND on the carried prediction would turn a corrupted carry into a stop.
+
+## What this adds to the machine
+
+Two kinds of sequence now sit side by side:
+- **The Stage 0 chain:** learned, context-branching, and one-way.
+- **The ring:** positional, fixed-order, readable either way, and startable anywhere.
+
+The route (direction and start point) is a fifth door, separate from content, context, rhythm and
+publication. The ring also shows that the dead time is doing routing, not only timing.
+
+The obvious composite is next: a ring as the scaffold that the chain's windows are read against.
+It's also where the fragility has to be fixed first.
