@@ -1,0 +1,3031 @@
+{
+ "params": {
+  "T": 50,
+  "win_end": 32,
+  "dead": 18,
+  "early_end": 16,
+  "in_on": 2,
+  "in_off": 14,
+  "reb_off": 8,
+  "d": 17,
+  "tau_r": 2.0,
+  "tau_a": 8.0,
+  "w_a": 1.2,
+  "w_inh": 0.8,
+  "theta": 0.08,
+  "G": 2.5,
+  "g_ap": 3.0,
+  "g_add": 0.0,
+  "mult": true,
+  "I_in": 1.0,
+  "kappa": 1.0,
+  "pv": 20.0,
+  "noise": 0.03,
+  "p_spont": 0.0,
+  "spont_I": 1.0,
+  "spont_len": 6,
+  "topic_gain": 1.0,
+  "thr_E": 2.0,
+  "thr_L": 1.5,
+  "tau_ctx": 6.0,
+  "tau_veto": 6.0,
+  "sst": true,
+  "eta_sst": 1.5,
+  "credit_norm": true,
+  "u_rule": "delta",
+  "u_decay": 0.0,
+  "eta_J": 0.01,
+  "eta_U": 0.2,
+  "theta_ap": 0.2,
+  "ap_scale": 0.3,
+  "cosine": true,
+  "carry_decay": 0.5,
+  "carry_cut": 0.5,
+  "sup_gain": 3.0,
+  "sup_decay": 0.3
+ },
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "n_train": 1200,
+ "per_seed": [
+  {
+   "seed": 0,
+   "T0": {
+    "deterministic": 1.0,
+    "context branch": 1.0,
+    "random branch": 0.4777777777777778,
+    "SST veto after a miss at a random branch": 0.2127659574468085,
+    "SST veto after a miss at a context branch": NaN,
+    "context branch, cold start": 1.0,
+    "context branch, apical off": 0.23333333333333334
+   },
+   "T2": {
+    "topic only": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... to": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... with a": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    }
+   },
+   "T3": {
+    "spont=0.0 dead=18": {
+     "valid": 1.0,
+     "multi_current": 0.1919191919191919,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=12": {
+     "valid": 0.7525252525252526,
+     "multi_current": 0.9393939393939393,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=6": {
+     "valid": 0.44696969696969696,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=0": {
+     "valid": 0.5101010101010103,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=18": {
+     "valid": 0.8787878787878786,
+     "multi_current": 0.4621212121212122,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=12": {
+     "valid": 0.7070707070707071,
+     "multi_current": 0.9520202020202021,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=6": {
+     "valid": 0.48232323232323226,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=0": {
+     "valid": 0.457070707070707,
+     "multi_current": 0.972222222222222,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=18": {
+     "valid": 0.7474747474747475,
+     "multi_current": 0.6237373737373738,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=12": {
+     "valid": 0.6666666666666666,
+     "multi_current": 0.9671717171717171,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=6": {
+     "valid": 0.42424242424242414,
+     "multi_current": 0.9772727272727272,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=0": {
+     "valid": 0.3737373737373737,
+     "multi_current": 0.9747474747474746,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=18": {
+     "valid": 0.6186868686868687,
+     "multi_current": 0.7727272727272726,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=12": {
+     "valid": 0.5631313131313133,
+     "multi_current": 0.9747474747474749,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=6": {
+     "valid": 0.4267676767676767,
+     "multi_current": 0.9747474747474746,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=0": {
+     "valid": 0.4065656565656565,
+     "multi_current": 0.9772727272727272,
+     "alive": 1.0
+    }
+   },
+   "T4": {
+    "mult": {
+     "0.0": {
+      "branch_acc": 0.26666666666666666,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.3333333333333333
+     },
+     "1.0": {
+      "branch_acc": 0.9777777777777777,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "2.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "3.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "4.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "6.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.6515151515151515
+     }
+    },
+    "add": {
+     "0.1": {
+      "branch_acc": 0.8222222222222222,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.888888888888889
+     },
+     "0.2": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.3": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.5": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.11515151515151516,
+      "free_valid": 0.9469696969696969
+     },
+     "1.0": {
+      "branch_acc": 0.6666666666666666,
+      "intrusions_per_cycle": 0.5454545454545454,
+      "free_valid": 0.1818181818181818
+     },
+     "2.0": {
+      "branch_acc": 0.35555555555555557,
+      "intrusions_per_cycle": 0.896969696969697,
+      "free_valid": 0.0
+     }
+    }
+   },
+   "T5": {
+    "AIS closed | k=1": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=2": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=3": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=4": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=4": {
+     "on time": 0.0,
+     "stale": 0.0,
+     "silent/died": 1.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=4": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    }
+   },
+   "T6": {
+    "topic_gain=1.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.6666666666666666,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 0.6666666666666666,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.6666666666666666,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    }
+   },
+   "T6b": {
+    "topic_gain=1.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.9444444444444444,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=2.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.8333333333333334,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "SST on": {
+      "B_follows_A": 0.9444444444444444,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.6666666666666666,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=4.0": {
+     "SST on": {
+      "B_follows_A": 0.8888888888888888,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.3888888888888889,
+      "C_follows_A": 1.0
+     }
+    }
+   },
+   "secs": 85.0451328754425
+  },
+  {
+   "seed": 1,
+   "T0": {
+    "deterministic": 1.0,
+    "context branch": 1.0,
+    "random branch": 0.4,
+    "SST veto after a miss at a random branch": 0.37962962962962965,
+    "SST veto after a miss at a context branch": NaN,
+    "context branch, cold start": 1.0,
+    "context branch, apical off": 0.3333333333333333
+   },
+   "T2": {
+    "topic only": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... to": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... with a": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    }
+   },
+   "T3": {
+    "spont=0.0 dead=18": {
+     "valid": 1.0,
+     "multi_current": 0.2045454545454545,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=12": {
+     "valid": 0.856060606060606,
+     "multi_current": 0.9116161616161617,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=6": {
+     "valid": 0.5126262626262627,
+     "multi_current": 0.9646464646464645,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=0": {
+     "valid": 0.4267676767676767,
+     "multi_current": 0.9646464646464649,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=18": {
+     "valid": 0.9090909090909092,
+     "multi_current": 0.3914141414141414,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=12": {
+     "valid": 0.8358585858585857,
+     "multi_current": 0.9393939393939394,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=6": {
+     "valid": 0.4545454545454544,
+     "multi_current": 0.9444444444444446,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=0": {
+     "valid": 0.45707070707070696,
+     "multi_current": 0.9671717171717171,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=18": {
+     "valid": 0.818181818181818,
+     "multi_current": 0.5555555555555557,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=12": {
+     "valid": 0.8106060606060606,
+     "multi_current": 0.9444444444444445,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=6": {
+     "valid": 0.4974747474747474,
+     "multi_current": 0.9646464646464645,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=0": {
+     "valid": 0.4166666666666666,
+     "multi_current": 0.972222222222222,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=18": {
+     "valid": 0.6969696969696971,
+     "multi_current": 0.7171717171717172,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=12": {
+     "valid": 0.7146464646464646,
+     "multi_current": 0.9545454545454547,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=6": {
+     "valid": 0.4671717171717172,
+     "multi_current": 0.9696969696969698,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=0": {
+     "valid": 0.44949494949494945,
+     "multi_current": 0.9747474747474746,
+     "alive": 1.0
+    }
+   },
+   "T4": {
+    "mult": {
+     "0.0": {
+      "branch_acc": 0.26666666666666666,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.3333333333333333
+     },
+     "1.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "2.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "3.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "4.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "6.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.9242424242424243
+     }
+    },
+    "add": {
+     "0.1": {
+      "branch_acc": 0.9333333333333333,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.8333333333333334
+     },
+     "0.2": {
+      "branch_acc": 0.9888888888888889,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.3": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.5": {
+      "branch_acc": 0.8888888888888888,
+      "intrusions_per_cycle": 0.10303030303030303,
+      "free_valid": 0.7272727272727272
+     },
+     "1.0": {
+      "branch_acc": 0.6222222222222222,
+      "intrusions_per_cycle": 0.3939393939393939,
+      "free_valid": 0.0808080808080808
+     },
+     "2.0": {
+      "branch_acc": 0.2111111111111111,
+      "intrusions_per_cycle": 0.3787878787878788,
+      "free_valid": 0.05303030303030303
+     }
+    }
+   },
+   "T5": {
+    "AIS closed | k=1": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=2": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=3": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=4": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=4": {
+     "on time": 0.0,
+     "stale": 0.0,
+     "silent/died": 1.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=4": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    }
+   },
+   "T6": {
+    "topic_gain=1.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.3333333333333333,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 0.9333333333333333,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.4666666666666667,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    }
+   },
+   "T6b": {
+    "topic_gain=1.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=2.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.8888888888888888,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.7222222222222222,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=4.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.3888888888888889,
+      "C_follows_A": 1.0
+     }
+    }
+   },
+   "secs": 84.19952034950256
+  },
+  {
+   "seed": 2,
+   "T0": {
+    "deterministic": 1.0,
+    "context branch": 1.0,
+    "random branch": 0.4111111111111111,
+    "SST veto after a miss at a random branch": 0.8301886792452831,
+    "SST veto after a miss at a context branch": NaN,
+    "context branch, cold start": 1.0,
+    "context branch, apical off": 0.34444444444444444
+   },
+   "T2": {
+    "topic only": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... to": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... with a": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    }
+   },
+   "T3": {
+    "spont=0.0 dead=18": {
+     "valid": 1.0,
+     "multi_current": 0.2045454545454545,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=12": {
+     "valid": 0.7070707070707072,
+     "multi_current": 0.9494949494949494,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=6": {
+     "valid": 0.5681818181818182,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=0": {
+     "valid": 0.4267676767676767,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=18": {
+     "valid": 0.8207070707070705,
+     "multi_current": 0.4267676767676767,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=12": {
+     "valid": 0.6994949494949495,
+     "multi_current": 0.9444444444444443,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=6": {
+     "valid": 0.4898989898989898,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=0": {
+     "valid": 0.457070707070707,
+     "multi_current": 0.9696969696969694,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=18": {
+     "valid": 0.7878787878787877,
+     "multi_current": 0.5883838383838386,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=12": {
+     "valid": 0.6818181818181818,
+     "multi_current": 0.9469696969696971,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=6": {
+     "valid": 0.457070707070707,
+     "multi_current": 0.972222222222222,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=0": {
+     "valid": 0.4116161616161616,
+     "multi_current": 0.972222222222222,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=18": {
+     "valid": 0.6186868686868687,
+     "multi_current": 0.7272727272727272,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=12": {
+     "valid": 0.6111111111111112,
+     "multi_current": 0.9696969696969697,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=6": {
+     "valid": 0.45454545454545453,
+     "multi_current": 0.9848484848484848,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=0": {
+     "valid": 0.36111111111111116,
+     "multi_current": 0.9873737373737373,
+     "alive": 1.0
+    }
+   },
+   "T4": {
+    "mult": {
+     "0.0": {
+      "branch_acc": 0.26666666666666666,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.3333333333333333
+     },
+     "1.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "2.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "3.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "4.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "6.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.6742424242424242
+     }
+    },
+    "add": {
+     "0.1": {
+      "branch_acc": 0.9777777777777777,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.2": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.3": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.5": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.1,
+      "free_valid": 0.9621212121212123
+     },
+     "1.0": {
+      "branch_acc": 0.7333333333333333,
+      "intrusions_per_cycle": 0.3606060606060606,
+      "free_valid": 0.3333333333333333
+     },
+     "2.0": {
+      "branch_acc": 0.26666666666666666,
+      "intrusions_per_cycle": 0.6090909090909091,
+      "free_valid": 0.011363636363636362
+     }
+    }
+   },
+   "T5": {
+    "AIS closed | k=1": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=2": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=3": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=4": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=4": {
+     "on time": 0.0,
+     "stale": 0.0,
+     "silent/died": 1.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=4": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    }
+   },
+   "T6": {
+    "topic_gain=1.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.3333333333333333,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 0.9333333333333333,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.8666666666666667,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    }
+   },
+   "T6b": {
+    "topic_gain=1.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=2.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.8333333333333334,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.6666666666666666,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=4.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.3888888888888889,
+      "C_follows_A": 1.0
+     }
+    }
+   },
+   "secs": 84.287593126297
+  },
+  {
+   "seed": 3,
+   "T0": {
+    "deterministic": 1.0,
+    "context branch": 1.0,
+    "random branch": 0.45555555555555555,
+    "SST veto after a miss at a random branch": 0.5,
+    "SST veto after a miss at a context branch": NaN,
+    "context branch, cold start": 1.0,
+    "context branch, apical off": 0.3111111111111111
+   },
+   "T2": {
+    "topic only": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... to": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... with a": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    }
+   },
+   "T3": {
+    "spont=0.0 dead=18": {
+     "valid": 1.0,
+     "multi_current": 0.18939393939393936,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=12": {
+     "valid": 0.8434343434343434,
+     "multi_current": 0.8914141414141414,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=6": {
+     "valid": 0.5126262626262627,
+     "multi_current": 0.9343434343434344,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=0": {
+     "valid": 0.409090909090909,
+     "multi_current": 0.9671717171717171,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=18": {
+     "valid": 0.8585858585858586,
+     "multi_current": 0.393939393939394,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=12": {
+     "valid": 0.8106060606060606,
+     "multi_current": 0.9191919191919192,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=6": {
+     "valid": 0.44696969696969696,
+     "multi_current": 0.9570707070707071,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=0": {
+     "valid": 0.38131313131313127,
+     "multi_current": 0.9696969696969697,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=18": {
+     "valid": 0.8106060606060606,
+     "multi_current": 0.537878787878788,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=12": {
+     "valid": 0.7297979797979798,
+     "multi_current": 0.9242424242424242,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=6": {
+     "valid": 0.3964646464646464,
+     "multi_current": 0.9419191919191917,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=0": {
+     "valid": 0.40151515151515144,
+     "multi_current": 0.9797979797979798,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=18": {
+     "valid": 0.7021016617790812,
+     "multi_current": 0.7070707070707072,
+     "alive": 0.9166666666666666
+    },
+    "spont=0.001 dead=12": {
+     "valid": 0.6439393939393941,
+     "multi_current": 0.931818181818182,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=6": {
+     "valid": 0.4318181818181818,
+     "multi_current": 0.9696969696969697,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=0": {
+     "valid": 0.3964646464646464,
+     "multi_current": 0.9797979797979798,
+     "alive": 1.0
+    }
+   },
+   "T4": {
+    "mult": {
+     "0.0": {
+      "branch_acc": 0.36666666666666664,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.3333333333333333
+     },
+     "1.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "2.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "3.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "4.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "6.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.6666666666666666
+     }
+    },
+    "add": {
+     "0.1": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.2": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.3": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.5": {
+      "branch_acc": 0.9888888888888889,
+      "intrusions_per_cycle": 0.2878787878787879,
+      "free_valid": 0.6515151515151515
+     },
+     "1.0": {
+      "branch_acc": 0.6555555555555556,
+      "intrusions_per_cycle": 0.3515151515151515,
+      "free_valid": 0.07575757575757576
+     },
+     "2.0": {
+      "branch_acc": 0.28888888888888886,
+      "intrusions_per_cycle": 0.5363636363636364,
+      "free_valid": 0.06355218855218855
+     }
+    }
+   },
+   "T5": {
+    "AIS closed | k=1": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=2": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=3": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=4": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=4": {
+     "on time": 0.0,
+     "stale": 0.0,
+     "silent/died": 1.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=4": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    }
+   },
+   "T6": {
+    "topic_gain=1.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.6,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 0.8,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.9333333333333333,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    }
+   },
+   "T6b": {
+    "topic_gain=1.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.9444444444444444,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=2.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.7777777777777778,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.6111111111111112,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=4.0": {
+     "SST on": {
+      "B_follows_A": 0.9444444444444444,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.4444444444444444,
+      "C_follows_A": 1.0
+     }
+    }
+   },
+   "secs": 83.89646339416504
+  },
+  {
+   "seed": 4,
+   "T0": {
+    "deterministic": 1.0,
+    "context branch": 1.0,
+    "random branch": 0.4722222222222222,
+    "SST veto after a miss at a random branch": 0.7368421052631579,
+    "SST veto after a miss at a context branch": NaN,
+    "context branch, cold start": 1.0,
+    "context branch, apical off": 0.34444444444444444
+   },
+   "T2": {
+    "topic only": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... to": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    },
+    "... with a": {
+     "valid": 1.0,
+     "world_consistent": 1.0,
+     "alive": 1.0
+    }
+   },
+   "T3": {
+    "spont=0.0 dead=18": {
+     "valid": 1.0,
+     "multi_current": 0.18686868686868685,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=12": {
+     "valid": 0.7373737373737373,
+     "multi_current": 0.914141414141414,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=6": {
+     "valid": 0.4595959595959596,
+     "multi_current": 0.9520202020202021,
+     "alive": 1.0
+    },
+    "spont=0.0 dead=0": {
+     "valid": 0.40151515151515155,
+     "multi_current": 0.9570707070707071,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=18": {
+     "valid": 0.8308080808080808,
+     "multi_current": 0.4545454545454546,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=12": {
+     "valid": 0.6691919191919192,
+     "multi_current": 0.9090909090909091,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=6": {
+     "valid": 0.4267676767676767,
+     "multi_current": 0.9469696969696969,
+     "alive": 1.0
+    },
+    "spont=0.0002 dead=0": {
+     "valid": 0.35858585858585856,
+     "multi_current": 0.9696969696969697,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=18": {
+     "valid": 0.8207070707070708,
+     "multi_current": 0.5555555555555557,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=12": {
+     "valid": 0.6540404040404041,
+     "multi_current": 0.9242424242424242,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=6": {
+     "valid": 0.4343434343434343,
+     "multi_current": 0.9520202020202019,
+     "alive": 1.0
+    },
+    "spont=0.0005 dead=0": {
+     "valid": 0.41161616161616155,
+     "multi_current": 0.972222222222222,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=18": {
+     "valid": 0.6969696969696971,
+     "multi_current": 0.7222222222222223,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=12": {
+     "valid": 0.5631313131313131,
+     "multi_current": 0.9368686868686869,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=6": {
+     "valid": 0.3838383838383838,
+     "multi_current": 0.9696969696969697,
+     "alive": 1.0
+    },
+    "spont=0.001 dead=0": {
+     "valid": 0.32323232323232326,
+     "multi_current": 0.9772727272727272,
+     "alive": 1.0
+    }
+   },
+   "T4": {
+    "mult": {
+     "0.0": {
+      "branch_acc": 0.3,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.3333333333333333
+     },
+     "1.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "2.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "3.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "4.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "6.0": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 0.8484848484848485
+     }
+    },
+    "add": {
+     "0.1": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.2": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.3": {
+      "branch_acc": 1.0,
+      "intrusions_per_cycle": 0.0,
+      "free_valid": 1.0
+     },
+     "0.5": {
+      "branch_acc": 0.9888888888888889,
+      "intrusions_per_cycle": 0.1303030303030303,
+      "free_valid": 0.6060606060606061
+     },
+     "1.0": {
+      "branch_acc": 0.6333333333333333,
+      "intrusions_per_cycle": 0.3787878787878788,
+      "free_valid": 0.19949494949494948
+     },
+     "2.0": {
+      "branch_acc": 0.18888888888888888,
+      "intrusions_per_cycle": 0.49696969696969695,
+      "free_valid": 0.015151515151515152
+     }
+    }
+   },
+   "T5": {
+    "AIS closed | k=1": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=2": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=3": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "AIS closed | k=4": {
+     "on time": 1.0,
+     "stale": 0.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace decays) | k=4": {
+     "on time": 0.0,
+     "stale": 0.0,
+     "silent/died": 1.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=1": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=2": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=3": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    },
+    "freeze (trace held) | k=4": {
+     "on time": 0.0,
+     "stale": 1.0,
+     "silent/died": 0.0,
+     "other": 0.0
+    }
+   },
+   "T6": {
+    "topic_gain=1.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 0.5333333333333333,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "accept (no 'no')": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup only": {
+      "avoided": 0.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 0.8666666666666667,
+      "finished": 1.0
+     },
+     "backup + route (SST)": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     },
+     "backup + route + item": {
+      "avoided": 1.0,
+      "retry_valid": 1.0,
+      "downstream_consistent": 1.0,
+      "finished": 1.0
+     }
+    }
+   },
+   "T6b": {
+    "topic_gain=1.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=2.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.8333333333333334,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=3.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.6111111111111112,
+      "C_follows_A": 1.0
+     }
+    },
+    "topic_gain=4.0": {
+     "SST on": {
+      "B_follows_A": 1.0,
+      "C_follows_A": 1.0
+     },
+     "SST off": {
+      "B_follows_A": 0.4444444444444444,
+      "C_follows_A": 1.0
+     }
+    }
+   },
+   "secs": 82.10330271720886
+  }
+ ],
+ "pooled": {
+  "T0": {
+   "deterministic": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "context branch": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "random branch": {
+    "mean": 0.44333333333333325,
+    "min": 0.4,
+    "max": 0.4777777777777778
+   },
+   "SST veto after a miss at a random branch": {
+    "mean": 0.5318852743169759,
+    "min": 0.2127659574468085,
+    "max": 0.8301886792452831
+   },
+   "SST veto after a miss at a context branch": {
+    "mean": NaN,
+    "min": NaN,
+    "max": NaN
+   },
+   "context branch, cold start": {
+    "mean": 1.0,
+    "min": 1.0,
+    "max": 1.0
+   },
+   "context branch, apical off": {
+    "mean": 0.31333333333333335,
+    "min": 0.23333333333333334,
+    "max": 0.34444444444444444
+   }
+  },
+  "T2": {
+   "topic only": {
+    "valid": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "world_consistent": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "... to": {
+    "valid": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "world_consistent": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "... with a": {
+    "valid": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "world_consistent": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   }
+  },
+  "T3": {
+   "spont=0.0 dead=18": {
+    "valid": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "multi_current": {
+     "mean": 0.1954545454545454,
+     "min": 0.18686868686868685,
+     "max": 0.2045454545454545
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0 dead=12": {
+    "valid": {
+     "mean": 0.7792929292929294,
+     "min": 0.7070707070707072,
+     "max": 0.856060606060606
+    },
+    "multi_current": {
+     "mean": 0.9212121212121211,
+     "min": 0.8914141414141414,
+     "max": 0.9494949494949494
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0 dead=6": {
+    "valid": {
+     "mean": 0.5,
+     "min": 0.44696969696969696,
+     "max": 0.5681818181818182
+    },
+    "multi_current": {
+     "mean": 0.958080808080808,
+     "min": 0.9343434343434344,
+     "max": 0.9696969696969694
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0 dead=0": {
+    "valid": {
+     "mean": 0.4348484848484849,
+     "min": 0.40151515151515155,
+     "max": 0.5101010101010103
+    },
+    "multi_current": {
+     "mean": 0.9656565656565655,
+     "min": 0.9570707070707071,
+     "max": 0.9696969696969694
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0002 dead=18": {
+    "valid": {
+     "mean": 0.8595959595959595,
+     "min": 0.8207070707070705,
+     "max": 0.9090909090909092
+    },
+    "multi_current": {
+     "mean": 0.4257575757575758,
+     "min": 0.3914141414141414,
+     "max": 0.4621212121212122
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0002 dead=12": {
+    "valid": {
+     "mean": 0.7444444444444444,
+     "min": 0.6691919191919192,
+     "max": 0.8358585858585857
+    },
+    "multi_current": {
+     "mean": 0.9328282828282827,
+     "min": 0.9090909090909091,
+     "max": 0.9520202020202021
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0002 dead=6": {
+    "valid": {
+     "mean": 0.46010101010101,
+     "min": 0.4267676767676767,
+     "max": 0.4898989898989898
+    },
+    "multi_current": {
+     "mean": 0.9575757575757574,
+     "min": 0.9444444444444446,
+     "max": 0.9696969696969694
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0002 dead=0": {
+    "valid": {
+     "mean": 0.42222222222222217,
+     "min": 0.35858585858585856,
+     "max": 0.457070707070707
+    },
+    "multi_current": {
+     "mean": 0.9696969696969695,
+     "min": 0.9671717171717171,
+     "max": 0.972222222222222
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0005 dead=18": {
+    "valid": {
+     "mean": 0.796969696969697,
+     "min": 0.7474747474747475,
+     "max": 0.8207070707070708
+    },
+    "multi_current": {
+     "mean": 0.5722222222222224,
+     "min": 0.537878787878788,
+     "max": 0.6237373737373738
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0005 dead=12": {
+    "valid": {
+     "mean": 0.7085858585858584,
+     "min": 0.6540404040404041,
+     "max": 0.8106060606060606
+    },
+    "multi_current": {
+     "mean": 0.9414141414141415,
+     "min": 0.9242424242424242,
+     "max": 0.9671717171717171
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0005 dead=6": {
+    "valid": {
+     "mean": 0.4419191919191919,
+     "min": 0.3964646464646464,
+     "max": 0.4974747474747474
+    },
+    "multi_current": {
+     "mean": 0.9616161616161614,
+     "min": 0.9419191919191917,
+     "max": 0.9772727272727272
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.0005 dead=0": {
+    "valid": {
+     "mean": 0.40303030303030296,
+     "min": 0.3737373737373737,
+     "max": 0.4166666666666666
+    },
+    "multi_current": {
+     "mean": 0.974242424242424,
+     "min": 0.972222222222222,
+     "max": 0.9797979797979798
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.001 dead=18": {
+    "valid": {
+     "mean": 0.6666829586184425,
+     "min": 0.6186868686868687,
+     "max": 0.7021016617790812
+    },
+    "multi_current": {
+     "mean": 0.7292929292929293,
+     "min": 0.7070707070707072,
+     "max": 0.7727272727272726
+    },
+    "alive": {
+     "mean": 0.9833333333333332,
+     "min": 0.9166666666666666,
+     "max": 1.0
+    }
+   },
+   "spont=0.001 dead=12": {
+    "valid": {
+     "mean": 0.6191919191919193,
+     "min": 0.5631313131313131,
+     "max": 0.7146464646464646
+    },
+    "multi_current": {
+     "mean": 0.9535353535353537,
+     "min": 0.931818181818182,
+     "max": 0.9747474747474749
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.001 dead=6": {
+    "valid": {
+     "mean": 0.4328282828282828,
+     "min": 0.3838383838383838,
+     "max": 0.4671717171717172
+    },
+    "multi_current": {
+     "mean": 0.9737373737373737,
+     "min": 0.9696969696969697,
+     "max": 0.9848484848484848
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   },
+   "spont=0.001 dead=0": {
+    "valid": {
+     "mean": 0.38737373737373737,
+     "min": 0.32323232323232326,
+     "max": 0.44949494949494945
+    },
+    "multi_current": {
+     "mean": 0.9792929292929292,
+     "min": 0.9747474747474746,
+     "max": 0.9873737373737373
+    },
+    "alive": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    }
+   }
+  },
+  "T4": {
+   "mult": {
+    "0.0": {
+     "branch_acc": {
+      "mean": 0.29333333333333333,
+      "min": 0.26666666666666666,
+      "max": 0.36666666666666664
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 0.3333333333333333,
+      "min": 0.3333333333333333,
+      "max": 0.3333333333333333
+     }
+    },
+    "1.0": {
+     "branch_acc": {
+      "mean": 0.9955555555555555,
+      "min": 0.9777777777777777,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "2.0": {
+     "branch_acc": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "3.0": {
+     "branch_acc": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "4.0": {
+     "branch_acc": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "6.0": {
+     "branch_acc": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 0.753030303030303,
+      "min": 0.6515151515151515,
+      "max": 0.9242424242424243
+     }
+    }
+   },
+   "add": {
+    "0.1": {
+     "branch_acc": {
+      "mean": 0.9466666666666667,
+      "min": 0.8222222222222222,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 0.9444444444444444,
+      "min": 0.8333333333333334,
+      "max": 1.0
+     }
+    },
+    "0.2": {
+     "branch_acc": {
+      "mean": 0.9977777777777778,
+      "min": 0.9888888888888889,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "0.3": {
+     "branch_acc": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "free_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "0.5": {
+     "branch_acc": {
+      "mean": 0.9733333333333334,
+      "min": 0.8888888888888888,
+      "max": 1.0
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.1472727272727273,
+      "min": 0.1,
+      "max": 0.2878787878787879
+     },
+     "free_valid": {
+      "mean": 0.7787878787878787,
+      "min": 0.6060606060606061,
+      "max": 0.9621212121212123
+     }
+    },
+    "1.0": {
+     "branch_acc": {
+      "mean": 0.6622222222222222,
+      "min": 0.6222222222222222,
+      "max": 0.7333333333333333
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.40606060606060607,
+      "min": 0.3515151515151515,
+      "max": 0.5454545454545454
+     },
+     "free_valid": {
+      "mean": 0.17424242424242425,
+      "min": 0.07575757575757576,
+      "max": 0.3333333333333333
+     }
+    },
+    "2.0": {
+     "branch_acc": {
+      "mean": 0.26222222222222225,
+      "min": 0.18888888888888888,
+      "max": 0.35555555555555557
+     },
+     "intrusions_per_cycle": {
+      "mean": 0.5836363636363637,
+      "min": 0.3787878787878788,
+      "max": 0.896969696969697
+     },
+     "free_valid": {
+      "mean": 0.02861952861952862,
+      "min": 0.0,
+      "max": 0.06355218855218855
+     }
+    }
+   }
+  },
+  "T5": {
+   "AIS closed | k=1": {
+    "on time": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "stale": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "AIS closed | k=2": {
+    "on time": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "stale": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "AIS closed | k=3": {
+    "on time": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "stale": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "AIS closed | k=4": {
+    "on time": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "stale": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace decays) | k=1": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace decays) | k=2": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace decays) | k=3": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace decays) | k=4": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "silent/died": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace held) | k=1": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace held) | k=2": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace held) | k=3": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "freeze (trace held) | k=4": {
+    "on time": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "stale": {
+     "mean": 1.0,
+     "min": 1.0,
+     "max": 1.0
+    },
+    "silent/died": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    },
+    "other": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   }
+  },
+  "T6": {
+   "topic_gain=1.0": {
+    "accept (no 'no')": {
+     "avoided": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup only": {
+     "avoided": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup + item": {
+     "avoided": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup + route (SST)": {
+     "avoided": {
+      "mean": 0.4933333333333333,
+      "min": 0.3333333333333333,
+      "max": 0.6666666666666666
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup + route + item": {
+     "avoided": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   },
+   "topic_gain=3.0": {
+    "accept (no 'no')": {
+     "avoided": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup only": {
+     "avoided": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup + item": {
+     "avoided": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 0.8399999999999999,
+      "min": 0.6666666666666666,
+      "max": 0.9333333333333333
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup + route (SST)": {
+     "avoided": {
+      "mean": 0.7866666666666667,
+      "min": 0.4666666666666667,
+      "max": 1.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "backup + route + item": {
+     "avoided": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "retry_valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "downstream_consistent": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "finished": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   }
+  },
+  "T6b": {
+   "topic_gain=1.0": {
+    "SST on": {
+     "B_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "SST off": {
+     "B_follows_A": {
+      "mean": 0.9777777777777779,
+      "min": 0.9444444444444444,
+      "max": 1.0
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   },
+   "topic_gain=2.0": {
+    "SST on": {
+     "B_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "SST off": {
+     "B_follows_A": {
+      "mean": 0.8333333333333334,
+      "min": 0.7777777777777778,
+      "max": 0.8888888888888888
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   },
+   "topic_gain=3.0": {
+    "SST on": {
+     "B_follows_A": {
+      "mean": 0.9888888888888889,
+      "min": 0.9444444444444444,
+      "max": 1.0
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "SST off": {
+     "B_follows_A": {
+      "mean": 0.6555555555555556,
+      "min": 0.6111111111111112,
+      "max": 0.7222222222222222
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   },
+   "topic_gain=4.0": {
+    "SST on": {
+     "B_follows_A": {
+      "mean": 0.9666666666666666,
+      "min": 0.8888888888888888,
+      "max": 1.0
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    },
+    "SST off": {
+     "B_follows_A": {
+      "mean": 0.4111111111111111,
+      "min": 0.3888888888888889,
+      "max": 0.4444444444444444
+     },
+     "C_follows_A": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+     }
+    }
+   }
+  }
+ }
+}
