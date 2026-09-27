@@ -215,6 +215,8 @@ python -m rttw.experiments   # ~8 min on 2 cores; writes results/results.json, r
 python -m rttw.viewer        # writes figures/
 python -m rttw.stage05       # Stage 0.5, ~3 min; writes results/stage05_results.json
 python -m rttw.viewer05      # writes figures/ring_viewer.png, figures/stage05_results.png
+python -m rttw.stage06       # Stage 0.6, ~6 min; writes results/stage06_results.json
+python -m rttw.viewer06      # writes figures/composite_viewer.png, figures/stage06_results.png
 ```
 
 `rttw/grammar.py` is the stories, `rttw/machine.py` the machine (all four doors and the learning
@@ -389,3 +391,196 @@ publication. The ring also shows that the dead time is doing routing, not only t
 
 The obvious composite is next: a ring as the scaffold that the chain's windows are read against.
 It's also where the fragility has to be fixed first.
+
+---
+
+# Stage 0.6 — the composite: a ring of places bound to the chain
+
+Stage 0.5 left two kinds of order side by side:
+- **the chain:** learned, context-branching, and one-way;
+- **the ring:** positional, readable either way, and fragile.
+
+Stage 0.6 puts them in one machine and asks what each one is for. It uses a task that needs both:
+hear a sentence **once**, then recall it forward or backward, or jump in at a word.
+
+## The machine
+
+**Populations.** Each ring place is now P units that share one region-level PV. A single unit that
+fires on its own moves its place's activity by 1/P. With P = 1 this is exactly the Stage 0.5 ring.
+
+**The ring shares the chain's rhythm.** The chain's PV dead time also silences the ring. A place's
+burst arrives at its neighbour during the dead time and is held by a slow synaptic trace until the
+next window opens. So one hop = one cycle = one word; this is the ring's version of the chain's
+rebound.
+
+To make that lock work, refractoriness is split into two parts:
+- a fast PV that ends each burst;
+- a slow component triggered when a *whole place's* burst ends.
+
+That way a few stray units don't build up refractoriness (see ledger).
+
+**Hearing once.** The sentence is read eyes-open while the ring runs forward from place 0. Each
+place binds, one-shot, to the word that was current while it was active (`B[place, word] = 1`).
+
+**Recall.** Eyes closed. The ring runs, and each active place drives its bound word's *basal* input
+with gain `g_B`. The chain (trained Stage 0 weights, 5 seeds) runs at the same time: its rebound,
+transitions and apical context act exactly as in Stage 0.
+- *Ring only* switches the chain off: no transitions, context or rebound.
+- *Chain only* sets `g_B = 0`. It gets the first word as a cue, because it can't start otherwise.
+
+Everything is scored on words 1–10.
+
+Test sentences:
+- **6 familiar** stories, matching the training worlds.
+- **12 novel** ones that break the world rule. For example, `winter girl walks to sea with a ball
+  and swims .` — winter stories in training always go to the hill.
+
+![composite viewer](figures/composite_viewer.png)
+
+## Results
+
+Numbers are pooled over the 5 Stage 0 weight seeds (C1 and C7 use 6–8 ring seeds). See
+`results/stage06_results.json`.
+
+![stage 0.6 results](figures/stage06_results.png)
+
+**C1 — populations fix the ring's fragility** (panels a, b). Survival (fraction of run before the
+wave is lost) against spurious ignitions per *unit* per second:
+
+| units per place | free ring 0.08 / 0.2 / 0.8 / 2 per s | ring locked to the chain |
+|---|---|---|
+| 1 | 0.23 / 0.17 / 0.06 / 0.02 | 0.05 / 0.04 / 0.02 / 0.00 |
+| 8 | 1.00 / 0.91 / 0.38 / 0.06 | 1.00 / 1.00 / 0.84 / 0.03 |
+| 16 | 1.00 / 1.00 / 1.00 / 0.06 | 1.00 / 0.84 / 1.00 / 0.05 |
+
+Everything fails at 2 per unit per second, where several units of one place start firing within a
+burst width of each other. One locked P = 16 seed failed at 0.2/s, so that point dips.
+
+The composite tests below use P = 1 unless they say otherwise; noise only enters in C6.
+
+**C2 — forward recall: the episode beats the schema, if it is strong enough** (panels c, d).
+
+| words correct | familiar | novel |
+|---|---|---|
+| chain only | 0.95 | 0.74 |
+| ring only | 1.00 | 1.00 |
+| composite, g_B = 1 / 2 / 3 / 4 / 8 | 0.96 / 0.97 / 0.98 / 0.98 / 1.00 | 0.75 / 0.78 / 0.86 / 0.98 / 1.00 |
+
+- **Every error is the schema word.** All 130 chain-only errors at the A/B/C slots of novel
+  sentences were the word the topic's world would put there. At weak episode drive the composite
+  makes the same errors: 130 of 130 at g_B = 1, 63 of 70 at g_B = 3. Recall regularizes toward the
+  learned schema, the way Bartlett's subjects did.
+- **The knee is between g_B = 3 and 4.**
+- **Even at g_B = 8, the window holds both candidates.** The episode word and the schema word were
+  both strongly active in 24% of novel-sentence cycles, against 5% for chain only. The episode word
+  is the one that gets said.
+
+**C3 — backward recall: the chain gets in the way.** Ring only: 1.00. The composite needs a much
+stronger episode: 0.56 at g_B = 4, 0.86 at 6, 0.94 at 8, 0.98 at 12. The chain predicts the
+forward successor every cycle, so two words were both active in 91% of backward cycles. Chain only
+can't recall backward at all. (People are also worse at backward recall than forward; that is an
+analogy, not a test.)
+
+**C4 — "what came after X?"** Hear X eyes-open; its bound place re-ignites the *next* place (a
+designed operation); read the answer.
+- ring only: 1.00 / 1.00 (familiar / novel);
+- composite: 1.00 / 0.99;
+- chain only: 0.78 / 0.77. After a jump the context is only X, so at 'to', 'a' and 'and' the chain
+  can't know which world it is in.
+
+**C5 — gaps in the episode: this is what the chain is for** (panel e). Some places are never bound,
+as if attention lapsed during hearing:
+
+| places never bound | ring only | composite, familiar | composite, novel |
+|---|---|---|---|
+| 2 | 0.80 (gaps silent) | 0.99 (95% of gaps correct) | 0.95 (74% of gaps correct) |
+| 4 | 0.60 | 0.98 (95%) | 0.92 (80%) |
+
+The chain fills gaps with what usually goes there. That is right for familiar sentences, and it
+produces the schema word for novel ones. It is reconstructive memory: the episode supplies what it
+has, and the schema supplies the rest.
+
+**C6 — noisy ring, four recitations in a row** (panel f). Measures:
+- *episode pairs:* consecutive words that follow the heard sentence;
+- *plausible:* wrong but grammatical pairs;
+- *silent:* cycles where nothing was said.
+
+A designed restart re-ignites the place after the last word spoken whenever the ring has been
+silent for a cycle.
+
+| | ring only | ring only + restart | composite | composite + restart |
+|---|---|---|---|---|
+| P=1, 0.2/s | 0.63 (31% silent) | **0.74** | 0.54 (0.14 plausible) | 0.59 |
+| P=1, 0.8/s | 0.40 | **0.48** | 0.41 | 0.46 |
+| P=8, 0.2/s | 0.88 | **0.98** | 0.85 | 0.91 |
+| P=8, 0.8/s | 0.67 | **0.94** | 0.54 | 0.65 |
+
+The best recovery comes from the ring restarting from the last word it said. The chain makes recall
+fluent: it is never silent. But it fills breaks with plausible wrong words, and sometimes restarts
+the ring from one of them. **The chain does not help recover the episode.**
+
+**C7 — checkpoint coincidence does not help.** This tests the idea from Stage 0.5: run the mirrored
+rings with OR coupling (robust), and demand AND only at publication (faithful).
+- The share of published words that belong to the wave goes from 0.45 to 0.46 at 0.08/s, and from
+  0.20 to 0.21 at 0.2/s. It costs 1–7% of the real words.
+- The reason: under OR coupling a private ignition spreads into *both* rings within one hop, so by
+  the time anything is published it is already shared. The checkpoint only ever catches the very
+  first stray burst.
+- AND everywhere is still the only version that keeps published words faithful (0.83). It still
+  dies just as often (survival 0.32).
+
+Populations (C1) are what actually removed the noise problem.
+
+## Ledger
+
+**Measured:**
+- Populations remove the ring's fragility up to about 0.8 spurious ignitions per unit per second.
+- Recall regularizes toward the schema below a clear episode-strength knee, and every error is the
+  schema word.
+- The chain interferes with backward recall (91% two-word cycles).
+- The chain fills unbound places correctly for familiar sentences and schematically for novel ones.
+- For recovering the episode under noise, restarting the ring from the last word beats having the
+  chain on.
+- The publication checkpoint changes almost nothing.
+
+**By construction:**
+- Ring-only perfection on clean runs (one-shot binding plus a working ring).
+- The restart and jump operations are designed.
+- The chain-only jump failures at branch words follow from the context reset.
+
+**Tuned by hand during development:**
+- **Locking the ring to one hop per cycle** needed three new pieces, searched on clean runs: the
+  synaptic trace (tau_s = 10, hop delay 40 steps), and the split refractoriness (fast PV 30 steps;
+  slow component 1.5 with tau 180).
+- **Why the refractoriness was split.** A single slow PV integrated stray-unit noise into
+  refractory holes: the locked P = 16 ring survived only 0.13 at 0.8/s. A PV recruitment
+  threshold and squared PV recruitment were tried and rejected; both broke propagation even
+  without noise. The slow component was first triggered at burst *onset*, which cut the burst
+  itself short, so it was moved to burst *end*.
+- **Stronger lateral inhibition** (w_inh 1.5–4), tried to resolve two-word windows, made composite
+  recall worse. Stage 0's 0.8 was kept.
+- **g_B = 8** was chosen as the main value after seeing the sweep.
+
+**Weak, negative, or flawed:**
+- **Saturation.** Units clip at 1, so above about g_B = 4 more episode drive doesn't make the episode
+  word stronger, only earlier. Ties are settled by small differences in the early-slot integral.
+  The g_B curve is really a curve of how often the episode word gets there first.
+- **Scale.** The sentences are tiny. The "novel" sentences break only the world rule, never the
+  skeleton, and the binding is a perfect one-shot Hebbian step with no interference between
+  episodes. Several heard sentences sharing one ring would be the real test.
+- **Checkpoint coincidence (C7):** negative.
+- **Recovery (C6):** the chain doesn't help, which was one of the hopes.
+
+## What it means
+
+The two kinds of order have different jobs:
+- **The ring is the episode:** this sentence, heard once, in this order, readable either way,
+  and restartable from the last thing said.
+- **The chain is the schema:** what usually comes next. It fills whatever the episode doesn't
+  have, correctly when the world is familiar and schematically when it isn't.
+- **The price of having both on at once:** backward recall and recovery get worse, because the
+  schema keeps pushing forward and fills breaks with plausible wrong words.
+
+A natural next door is a control that turns the chain's influence down when the task is "say
+exactly what you heard", and up when it is "fill in what's missing". That would be the tuft/SST
+system's job in the original picture.

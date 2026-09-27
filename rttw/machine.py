@@ -154,7 +154,7 @@ class Machine:
 
     # ------------------------------------------------------------------ cycle
     def cycle(self, word=None, ais_open=True, freeze=False, learn=False,
-              record=False, clamp_carry=None):
+              record=False, clamp_carry=None, ext_fn=None):
         """Run one cycle. word=None means eyes closed (no input).
         freeze=True: PV inhibition for the whole cycle (recurrence stopped).
         Returns a dict describing the cycle."""
@@ -190,6 +190,10 @@ class Machine:
                 self.spont[new] = p.spont_len
                 basal += p.spont_I * (self.spont > 0)
                 self.spont = np.maximum(self.spont - 1, 0)
+            if ext_fn is not None:
+                # another circuit sharing this rhythm (e.g. the ring); it is told
+                # whether PV is closing the window at this step
+                basal += ext_fn(k, freeze or k >= p.T - p.dead)
             np.maximum(rec_basal_max, basal, out=rec_basal_max)
 
             if p.mult:
